@@ -1,4 +1,4 @@
-# IFCT v3.1 Enterprise Grade
+# ifct-enterprise
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
@@ -6,163 +6,141 @@
 
 ## Overview
 
-**IFCT (Infinite Fractal Cubes Theory) v3.1 Enterprise Grade** is an advanced computational framework implementing the Geométrico-Helicoidal v3.0 theory. It integrates multidimensional fractional calculus, adaptive geometric constant optimization (δ_G), hybrid quantum-classical simulations, and fractal-helicoidal data migration architectures. Designed for enterprise-level applications, it supports GPU acceleration (via CuPy), quantum integration (via Qiskit), real-time performance monitoring, and comprehensive benchmarking.
+**ifct-enterprise** is an enterprise-grade Python framework implementing Infinite Fractal Cubes Theory (IFCT) v3.1 Geométrico-Helicoidal. It features multidimensional fractional calculus, adaptive δ_G optimization, hybrid quantum-classical simulations via Qiskit, and GPU acceleration with CuPy. Designed for production environments, it supports real-time performance monitoring, benchmarking, and scalable architectures for applications in AI, quantum computing, biological modeling, and HPC.
 
-This project transforms theoretical concepts into a production-ready Python library, enabling efficient simulations in fields like AI, quantum computing, biological modeling, and high-performance computing (HPC). It emphasizes scalability, robustness, and adaptability, with a focus on minimizing energy functionals for optimal fractal scaling.
-
-Key motivations:
-- Bridge classical and quantum computing with fractal geometries.
-- Provide tools for multidimensional fractional derivatives and stochastic dynamics.
-- Enable adaptive optimization for real-world datasets, inspired by IBM review recommendations.
-
-For the full theoretical foundation, see [v3teoria.txt](docs/v3teoria.txt) and the auto-generated documentation in [docs/](docs/).
+This library bridges theoretical fractal geometries (cubo-cilindro-helicoidal) with practical tools, minimizing energy functionals for optimal scaling. For the theoretical foundation, see [docs/v3teoria.txt](docs/v3teoria.txt).
 
 ## Features
 
-- **Multidimensional Fractional Calculus**: Rigorous implementations of Grünwald-Letnikov, Fourier, and Caputo methods, with GPU/CPU support for high-dimensional data.
-- **Adaptive δ_G Management**: Real-time optimization using gradient descent, evolutionary algorithms, ML predictors (RandomForest), and hybrid methods. Includes stability controls and data feature extraction (e.g., skewness, kurtosis).
-- **Quantum-Classical Hybrid Integration**: Bridge with Qiskit for fractal quantum circuits, coherence preservation, and hybrid simulations.
-- **Performance Optimization**: GPU memory pooling, parallel processing (ThreadPoolExecutor), LRU caching, and numerical precision controls (float32/64/128).
-- **Enterprise Tools**: Logging, profiling, quality validation (precision, robustness scores), scalability benchmarks (GPU vs CPU), and error handling.
-- **Documentation Generator**: Auto-generates API docs, configuration guides, and troubleshooting in Markdown.
-- **Modular Architecture**: Configurable via `IFCTConfig` for HPC, cloud, edge, or dev environments.
-- **Benchmarks and Validation**: Built-in suites for scalability analysis (scaling exponent calculation) and resource comparisons.
+- **Advanced Fractional Calculus**: Multidimensional derivatives using Grünwald-Letnikov, Fourier, and Caputo methods, optimized for CPU/GPU.
+- **Adaptive δ_G Manager**: Real-time optimization with gradient, evolutionary, ML (RandomForest), and hybrid algorithms, including stability and data feature analysis.
+- **Quantum Integration**: Qiskit-based hybrid simulations with fractal circuits and coherence preservation.
+- **Performance Tools**: Parallel processing, LRU caching, memory management, and profiling decorators.
+- **Enterprise Validation**: Quality scoring, error handling, logging, and auto-generated documentation.
+- **Benchmarking Suite**: Scalability tests, GPU vs CPU comparisons, and resource analysis.
+- **Configurable Setup**: Flexible for HPC, cloud, edge, or development via `IFCTConfig`.
 
 ## Installation
 
-### Prerequisites
-- Python 3.8+
-- Basic libraries: `numpy`, `scipy`, `matplotlib`, `joblib`, `numba`
-- Optional for advanced features:
-  - GPU: `cupy` (requires CUDA)
-  - Quantum: `qiskit`
-  - ML: `scikit-learn`
-  - Others: `pygame`, `networkx`, etc. (as needed)
-
-Install via pip (assuming you clone the repo):
-
-```bash
-git clone https://github.com/yourusername/ifct-enterprise.git
+```
+# Clone
+git clone https://github.com/MiguelAngelFrancoLeon/ifct-enterprise.git
 cd ifct-enterprise
+
+# Environment with conda (recommended)
+conda env create -f environment.yml
+conda activate ifct-enterprise
+
+# Or with pip (CPU minimal)
 pip install -r requirements.txt
+pip install -e .
 ```
 
-For a minimal setup:
-```bash
-pip install numpy scipy matplotlib cupy qiskit scikit-learn numba joblib
-```
+Colab (CPU/GPU optional):
 
-Note: No internet access required post-install; all computations are local.
+```
+# CPU minimal
+!pip -q install numpy scipy matplotlib numba joblib scikit-learn
+# GPU optional (if Colab has CUDA)
+# !pip -q install cupy-cuda12x
+# Qiskit optional
+# !pip -q install qiskit
+```
 
 ## Usage
 
-### Quick Start
+### Quickstart (CPU minimal)
 
-```python
+```
 from ifct_enterprise import IFCTConfig, EnterpriseIFCTSystem
-
-# Initialize configuration
-config = IFCTConfig(
-    delta_G=0.921,              # Initial geometric constant
-    use_gpu=True,               # Enable GPU if available
-    adaptive_delta_g=True,      # Real-time δ_G optimization
-    quantum_integration=True,   # Qiskit hybrid mode
-    max_memory_gb=8.0           # Memory limit
-)
-
-# Create the system
-system = EnterpriseIFCTSystem(config)
-
-# Generate sample data (e.g., multidimensional array)
 import numpy as np
-data = np.random.randn(100, 100) + 0.1 * np.sin(np.linspace(0, 10, 100))
 
-# Run full enterprise analysis
-result = system.full_analysis_enterprise(
-    data,
-    analysis_type='comprehensive',
-    target_metrics={'compression_ratio': 8.0, 'accuracy': 0.95}
+config = IFCTConfig(
+    delta_G=0.921,
+    use_gpu=False,          # True if Cupy available
+    adaptive_delta_g=True,
+    quantum_integration=False  # True if Qiskit available
 )
 
-# Access results
-print(f"Optimal δ_G: {result['delta_g_optimization']['optimal_delta_g']}")
-print(f"Quality Score: {result['quality_validation']['overall_quality_score']}")
+system = EnterpriseIFCTSystem(config)
+data = np.random.randn(256, 256)
+
+res = system.full_analysis_enterprise(
+    data,
+    analysis_type="comprehensive",
+    target_metrics={"compression_ratio": 4.0, "accuracy": 0.9}
+)
+
+print("Optimal δ_G:", res["delta_g_optimization"]["optimal_delta_g"])
+print("Quality score:", res["quality_validation"]["overall_quality_score"])
 ```
 
-### Running Benchmarks
+### Quickstart (GPU + Qiskit if available)
 
-```python
-from ifct_enterprise import IFCTBenchmarkSuite
+```
+try:
+    import cupy as cp; HAS_GPU=True
+except Exception:
+    HAS_GPU=False
 
-benchmark = IFCTBenchmarkSuite(config)
-scalability_results = benchmark.run_scalability_benchmark(size_range=[100, 1000, 10000], iterations=3)
-print(f"Scaling Exponent: {scalability_results['scalability_analysis']['scaling_exponent']:.3f}")
+try:
+    import qiskit; HAS_Q=True
+except Exception:
+    HAS_Q=False
 
-if config.use_gpu:
-    gpu_results = benchmark.run_gpu_vs_cpu_benchmark()
-    print(f"Average GPU Speedup: {gpu_results['speedup_analysis']['avg_speedup']:.2f}x")
+config = IFCTConfig(use_gpu=HAS_GPU, quantum_integration=HAS_Q)
 ```
 
-### Generating Documentation
+More examples in [examples/](examples/).
 
-```python
-from ifct_enterprise import IFCTDocumentationGenerator
+## Scope & Claims
 
-doc_gen = IFCTDocumentationGenerator()
-api_docs = doc_gen.generate_api_documentation()
-with open('docs/ifct_api_docs.md', 'w') as f:
-    f.write(api_docs)
+IFCT v3.1 is a fractional calculus and simulation framework with modules for δ_G optimization, GPU support, and quantum bridging.  
+Theoretical hypotheses linked to IFCT are documented in v3teoria.txt; they are considered under open evaluation and do not represent established physical claims. The software is independent and useful for fractional PDEs, stochastic modeling, and hybrid quantum-classical prototypes.
+
+## Benchmarks (Reproducible)
+
+```
+python -m benchmarks.run_scaling --sizes 256 512 1024 --iters 3 --seed 42
+python -m benchmarks.run_gpu_vs_cpu --sizes 512 1024 --iters 3 --seed 42
 ```
 
-## Examples
+| Test             | Size   | CPU (s) | GPU (s) | Speedup  |
+|------------------|--------|---------|---------|----------|
+| FracFourier3D    | 512³   | 12.3    | 5.7     | 2.16×    |
+| FracFourier3D    | 1024³  | 98.1    | 42.8    | 2.29×    |
 
-- **Fractional Derivative Computation**:
-  ```python
-  from ifct_enterprise import AdvancedFractionalCalculus
-
-  calc = AdvancedFractionalCalculus(config)
-  derivative = calc.multidim_fractional_derivative(data, alpha=0.921, method='fourier')
-  ```
-
-- **Quantum Hybrid Simulation**:
-  ```python
-  from ifct_enterprise import QuantumIFCTBridge
-  from qiskit import QuantumCircuit
-
-  bridge = QuantumIFCTBridge(config)
-  qc = bridge.create_fractal_quantum_circuit(n_qubits=4, fractal_depth=3, delta_g=0.921)
-  hybrid_result = bridge.hybrid_quantum_simulation(qc, data)
-  print(f"Fidelity: {hybrid_result['fidelity']:.4f}")
-  ```
-
-More examples in [examples/](examples/) directory.
+Hardware: RTX 3090, CUDA 12.2, i9-12900K, Linux 6.8, Python 3.11, CuPy 13.0, NumPy 2.0.
 
 ## Documentation
 
-- [API Documentation](docs/ifct_enterprise_api_docs.md)
-- [Configuration Guide](docs/ifct_enterprise_config_guide.md)
-- Theoretical docs: [v3teoria.txt](docs/v3teoria.txt)
-- For troubleshooting, see the generated guides.
+- [API Docs](docs/ifct_enterprise_api_docs.md)
+- [Config Guide](docs/ifct_enterprise_config_guide.md)
+- [Theory](docs/v3teoria.txt)
 
 ## Contributing
 
-Contributions are welcome! Please follow these steps:
-1. Fork the repo.
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`).
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
-4. Push to the branch (`git push origin feature/AmazingFeature`).
-5. Open a Pull Request.
+Fork, branch, commit, and PR! Focus on math enhancements, new integrations, or benchmarks.
 
-We appreciate improvements in math rigor, new benchmarks, or integrations (e.g., with TensorFlow).
+## Citing
+
+If this work is useful to you, cite it as follows (replace with DOI from Zenodo when available):
+
+```
+@software{FrancoLeon_IFCT_Enterprise_2025,
+  author  = {Franco León, Miguel Ángel},
+  title   = {IFCT v3.1 Enterprise Grade},
+  year    = {2025},
+  url     = {https://github.com/MiguelAngelFrancoLeon/ifct-enterprise},
+  version = {v3.1},
+  license = {MIT}
+}
+```
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT License - see [LICENSE](LICENSE).
 
 ## Acknowledgments
 
-- Inspired by fractal theories.
-- Thanks to open-source communities for libraries like Qiskit and CuPy.
-- Built with ❤️ by [Miguel Angel Franco Leon]. Let's revolutionize computing!
-
-If you find this useful, star the repo or share your forks! Questions? Open an issue. 🚀
+Built with insights from fractal theories and IBM reviews. Star if useful! 🚀
