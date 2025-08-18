@@ -143,4 +143,4 @@ MIT License - see [LICENSE](LICENSE).
 
 ## Acknowledgments
 
-Built with insights from fractal theories and IBM reviews. Star if useful! 🚀
+Built with insights from fractal theories. Star if useful! 🚀
