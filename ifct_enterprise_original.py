@@ -5,7 +5,7 @@ IFCT Integration Wrapper - Production Ready
 Integra tu simulador DNS real con framework de optimización
 Añade structured output, error handling, performance monitoring
 
-Autor: Miguel Angel Franco León + Claude
+Autor: Miguel Angel Franco León 
 """
 
 import numpy as np
