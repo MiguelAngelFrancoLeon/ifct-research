@@ -5,7 +5,7 @@ IFCT Integration Wrapper - Quaternion Method Implementation
 Implementación completa del método cuaterniónico IFCT según Algorithm 1
 Reemplaza operador |k|^σ por rotación directa q * u * q*
 
-Autor: Miguel Angel Franco León + Claude
+Autor: Miguel Angel Franco León 
 """
 
 import numpy as np
