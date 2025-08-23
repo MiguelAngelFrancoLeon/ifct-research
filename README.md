@@ -1,20 +1,21 @@
-IFCT Quaternion Solver v3.1 🌀
-Mostrar imagen
-Mostrar imagen
-Mostrar imagen
-Mostrar imagen
+# IFCT Quaternion Solver v3.1 🌀
 
-Breakthrough in Computational Fluid Dynamics: The first singularity-free DNS solver using quaternion-based IFCT (Infinite Fractal Cubes Theory)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
+[![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen.svg)](https://github.com/MiguelAngelFrancoLeon/ifct-research)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo-blue.svg)](https://zenodo.org)
+
+Novel Approach in Computational Fluid Dynamics: A singularity-free DNS solver using quaternion-based IFCT (Infinite Fractal Cubes Theory)
 
 🚀 Overview
-The IFCT Quaternion Solver represents a paradigm shift in computational fluid dynamics by completely eliminating the coordinate singularities that have plagued cylindrical methods for decades. Using pure quaternion rotations and variational optimization, this framework achieves machine-precision accuracy while maintaining superior computational efficiency.
-🎯 Key Achievements
+The IFCT Quaternion Solver presents a novel approach to computational fluid dynamics by addressing the coordinate singularities that affect cylindrical methods. Using quaternion rotations and variational optimization, this framework achieves high numerical accuracy while maintaining computational efficiency.
+🎯 Key Features
 
-✅ Zero Singularities: Completely eliminates r=0 singularities present in cylindrical coordinates
-✅ Machine Precision: Validation errors of ~10^-15 to 10^-17
-✅ Superior Efficiency: O(N³) complexity vs O(N³ log N) of traditional methods
-✅ Perfect Conservation: Energy, helicity, and incompressibility rigorously preserved
-✅ Universal Stability: Works for any flow topology without numerical issues
+✅ Singularity-Free: Addresses r=0 singularities present in cylindrical coordinates
+✅ High Precision: Validation errors of ~10^-15 to 10^-17
+✅ Computational Efficiency: O(N³) complexity vs O(N³ log N) of traditional methods
+✅ Conservation Properties: Energy, helicity, and incompressibility preserved
+✅ Robust Stability: Consistent performance across different flow topologies
 ✅ 8/8 Mathematical Validations: All theoretical properties verified
 
 📊 Validation Results
@@ -24,10 +25,10 @@ Mathematical Foundation
 The IFCT framework extends the incompressible Navier-Stokes equations with a quaternion-based migration operator:
 ∂u/∂t + Π(u·∇u) = -ν(-Δ)^β u + α S_δG^quat(u)
 Where S_δG^quat(u) = q(x,δG) * u(x) * q*(x,δG) with optimal rotation field Ω = δG·ω.
-The Universal Parameter δG ≈ 0.921
-Through variational calculus, we proved that the optimal geometric parameter converges to δG ≈ 0.921, which:
+The Geometric Parameter δG ≈ 0.921
+Through variational calculus, we found that the optimal geometric parameter converges to δG ≈ 0.921, which:
 
-Minimizes the regularization functional globally
+Minimizes the regularization functional
 Preserves incompressibility exactly (∇·Ω = δG ∇·ω = 0)
 Maximizes helicity alignment
 Ensures O(δG) convergence to classical Navier-Stokes
@@ -49,7 +50,7 @@ scipy >= 1.7.0
 matplotlib >= 3.4.0
 dataclasses >= 0.8  # Python < 3.7
 🎮 Quick Start
-pythonfrom ifct_quaternion_solverv1.py import IFCTSolverQuaternion, IFCTConfigAdvanced
+pythonfrom ifct_quaternion_solver import IFCTSolverQuaternion, IFCTConfigAdvanced
 
 # Configure simulation
 config = IFCTConfigAdvanced(
@@ -74,9 +75,8 @@ print(f"Runtime: {result.runtime:.2f}s")
 validation = result.validation_results
 for key, value in validation.items():
     print(f"{key}: {value:.2e}")
-📈 Benchmarking & Optimization
-Performance Comparison
-MethodComplexitySingularitiesDivergence ErrorCylindricalO(N³ log N)r = 0 issues~10⁻³IFCT QuaternionO(N³)None~10⁻¹⁵
+📈 Performance Comparison
+MethodComplexitySingularitiesDivergence ErrorCylindricalO(N³ log N)r = 0 issues~10⁻³IFCT QuaternionO(N³)Addressed~10⁻¹⁵
 Automatic δG Optimization
 pythonfrom ifct_quaternion_solver import IFCTOptimizerQuaternion
 
@@ -105,7 +105,7 @@ validation_result = validate_asymptotic_quaternion(
 
 convergence_rate = validation_result['convergence_analysis']['L2_rate']
 print(f"Convergence rate: {convergence_rate:.3f}")
-Enterprise Configuration
+Production Configuration
 python# Production-ready configuration
 config = IFCTConfigAdvanced(
     Nx=64, Ny=64, Nz=64,
@@ -134,11 +134,11 @@ Quaternion Generation: q = exp(Ω/2||Ω||) with singularity handling
 Pure Rotation: u' = q * u * q* (Rodrigues formula)
 Solenoidal Projection: Restore incompressibility (corrected signs)
 
-Key Corrections Applied
+Key Improvements Applied
 
-✅ Fixed solenoidal projection sign (critical for divergence elimination)
+✅ Corrected solenoidal projection signs (critical for divergence control)
 ✅ Proper Taylor expansion verification (O(δG) dominant term)
-✅ Singularity-free quaternion construction (L'Hôpital limit handling)
+✅ Robust quaternion construction (L'Hôpital limit handling)
 
 📚 Scientific Background
 Publications & References
@@ -147,7 +147,7 @@ Franco León, M.A. (2025). "Quaternion-Based IFCT Framework: Singularity-Free Re
 Mathematical foundation based on Helmholtz-Hodge decomposition and quaternion algebra
 Variational formulation using Euler-Lagrange optimality conditions
 
-Theoretical Guarantees
+Theoretical Properties
 
 Existence & Uniqueness: Proven for u₀ ∈ H^s with s > 1 + 3/2
 Asymptotic Consistency: δG → 0 recovers exact Navier-Stokes
@@ -167,28 +167,29 @@ Bug reports and fixes
 📄 License
 This project is licensed under the MIT License - see LICENSE file for details.
 📞 Contact & Citation
-Author: Miguel Angel Franco León (Autodidact Researcher)
-Email: [miguelfranco@mfsu-model.org]
-ORCID: [0009-0003-9492-385X]
+Author: Miguel Angel Franco León (Independent Researcher)
+Email: miguelfranco@mfsu-model.org
+GitHub: https://github.com/MiguelAngelFrancoLeon/ifct-research
+ORCID: [Your ORCID ID if available]
 Citation
 bibtex@software{franco_leon_ifct_2025,
   author = {Franco León, Miguel Angel},
-  title = {IFCT Quaternion Solver: Singularity-Free DNS for Incompressible Flows},
+  title = {IFCT Quaternion Solver: A Novel Approach for Incompressible Flow Simulation},
   year = {2025},
   url = {https://github.com/MiguelAngelFrancoLeon/ifct-research},
   doi = {10.5281/zenodo.xxxxx}
 }
 🎖 Acknowledgments
-This work represents the culmination of autodidactic research in computational fluid dynamics, demonstrating that passion and dedication can overcome traditional academic barriers. Special thanks to the open-source scientific computing community.
+This work represents independent research in computational fluid dynamics, exploring novel approaches to classical problems in fluid simulation. Thanks to the open-source scientific computing community for providing the tools that made this work possible.
 📊 Project Status
 
 ✅ Core Algorithm: Complete and validated
-✅ Mathematical Framework: Rigorously proven
+✅ Mathematical Framework: Rigorously formulated
 ✅ Implementation: Production-ready
 ✅ Documentation: Comprehensive
 🔄 Publication: Submitted to Zenodo, journal submission in progress
-🔄 Extensions: GPU optimization, MHD applications
+🔄 Extensions: GPU optimization, additional applications
 
 
-"The era of singularities in CFD has ended." - Eliminating coordinate singularities through pure mathematical elegance.
-⭐ If this project helps your research, please give it a star!
+Novel approaches to classical problems in computational fluid dynamics through quaternion-based methods.
+⭐ If this project is useful for your research, please consider giving it a star!
