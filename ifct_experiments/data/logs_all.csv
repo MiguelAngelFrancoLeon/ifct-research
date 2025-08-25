@@ -1,0 +1,4 @@
+deltaG,initial_div_omega_error,initial_div_Omega_error,initial_quaternion_norm_error,initial_norm_preservation_error,initial_final_divergence,initial_energy_conservation,initial_helicity_conservation,initial_taylor_expansion,final_div_omega_error,final_div_Omega_error,final_quaternion_norm_error,final_norm_preservation_error,final_final_divergence,final_energy_conservation,final_helicity_conservation,final_taylor_expansion,taylor_bound_check,converged,steps,runtime,energy
+0.0,7.62e-16,0.0,0.0,0.0,5.48e-18,5.2e-16,1.74e-07,0.0,7.3e-16,0.0,0.0,0.0,1.1e-17,5.41e-16,3.76e-07,0.0,1.0,True,40,3.81,0.004811638
+0.5,7.62e-16,3.81e-16,2.22e-16,1.39e-17,7.37e-18,0.00654,1.73e-07,0.0979,6.51e-16,3.26e-16,2.22e-16,1.39e-17,1.48e-17,0.00629,2.16e-07,0.096,,True,40,6.6,0.004810283
+0.921,7.62e-16,8.55e-16,2.22e-16,1.39e-17,8.75e-18,0.022,2.17e-07,0.0979,6.18e-16,5.98e-16,2.22e-16,1.39e-17,1.59e-17,0.0211,4.76e-07,0.0959,,True,40,3.57,0.004803201
