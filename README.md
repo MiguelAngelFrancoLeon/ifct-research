@@ -32,6 +32,16 @@ Minimizes the regularization functional
 Preserves incompressibility exactly (∇·Ω = δG ∇·ω = 0)
 Maximizes helicity alignment
 Ensures O(δG) convergence to classical Navier-Stokes
+cff-version: 1.2.0
+message: "If you use this software, please cite as below."
+authors:
+  - family-names: "Franco León"
+    given-names: "Miguel Ángel"
+title: "IFCT Quaternionic Validation Framework"
+version: "1.0.0"
+doi: "10.5281/zenodo.XXXXXXX"
+date-released: 2025-08-25
+url: "https://github.com/MiguelAngelFrancoLeon/ifct-research"
 
 🛠 Installation
 bash# Clone the repository
